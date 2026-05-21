@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPS Reconnect — Nalgonda Public School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --surface2: #fbfbfd;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --text-tertiary: #aeaeb2;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --accent-light: #e8f0fd;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.14);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.07);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.10);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --radius-xs: 8px;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    background: rgba(245,245,247,0.82);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo {
+    width: 30px; height: 30px;
+    background: var(--text-primary);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo svg { width: 16px; height: 16px; }
+  .nav-title {
+    font-size: 15px; font-weight: 500; letter-spacing: -0.2px;
+  }
+  .nav-badge {
+    font-size: 11px; font-weight: 400; color: var(--text-secondary);
+    background: var(--border);
+    padding: 2px 8px; border-radius: 20px;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    text-decoration: none; font-size: 14px; font-weight: 400;
+    color: var(--text-secondary); transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 40px 80px;
+    max-width: 1000px; margin: 0 auto;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 13px; font-weight: 400; color: var(--text-secondary);
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #34c759;
+    box-shadow: 0 0 0 2px rgba(52,199,89,0.25);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(44px, 7vw, 76px);
+    font-weight: 500;
+    line-height: 1.06;
+    letter-spacing: -2px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, #0071e3, #34aadc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p {
+    font-size: 19px; font-weight: 300; color: var(--text-secondary);
+    max-width: 520px; margin: 0 auto 40px;
+    line-height: 1.65; letter-spacing: -0.1px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--text-primary); color: #fff;
+    border: none; border-radius: 30px;
+    padding: 14px 32px; font-size: 15px; font-weight: 500;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: all var(--transition);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    letter-spacing: -0.2px;
+  }
+  .btn-primary:hover {
+    background: #3a3a3c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  }
+  .btn-secondary {
+    background: var(--surface); color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    border-radius: 30px; padding: 14px 32px;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: all var(--transition);
+    letter-spacing: -0.2px;
+  }
+  .btn-secondary:hover {
+    background: var(--bg);
+    border-color: var(--text-tertiary);
+    transform: translateY(-2px);
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex; justify-content: center; gap: 2px;
+    max-width: 680px; margin: 60px auto 0;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-card {
+    flex: 1; background: var(--surface);
+    padding: 28px 20px; text-align: center;
+    border: 1px solid var(--border);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .stat-card:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .stat-card:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); z-index: 1; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 500;
+    letter-spacing: -1px; color: var(--text-primary);
+  }
+  .stat-label {
+    font-size: 12px; color: var(--text-secondary);
+    margin-top: 4px; letter-spacing: 0.3px; text-transform: uppercase;
+  }
+
+  /* SECTION WRAPPER */
+  .section {
+    max-width: 960px; margin: 0 auto;
+    padding: 80px 40px;
+  }
+  .section-header {
+    text-align: center; margin-bottom: 52px;
+  }
+  .section-eyebrow {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 500; letter-spacing: -1px;
+    color: var(--text-primary); margin-bottom: 14px;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--text-secondary);
+    font-weight: 300; max-width: 440px; margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* SUBMIT FORM */
+  .form-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    max-width: 640px; margin: 0 auto;
+  }
+  .form-card-header {
+    background: var(--text-primary);
+    padding: 28px 36px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .form-card-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .form-card-header-text h3 {
+    font-size: 17px; font-weight: 500; color: #fff; letter-spacing: -0.3px;
+  }
+  .form-card-header-text p {
+    font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 2px;
+  }
+  .form-body { padding: 36px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label {
+    font-size: 12px; font-weight: 500; color: var(--text-secondary);
+    letter-spacing: 0.4px; text-transform: uppercase;
+  }
+  .form-input, .form-select, .form-textarea {
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xs);
+    padding: 12px 16px; font-size: 15px;
+    color: var(--text-primary); font-family: inherit;
+    transition: all var(--transition); outline: none;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(0,113,227,0.12);
+    background: #fff;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text-tertiary); }
+  .form-textarea { resize: vertical; min-height: 90px; }
+  .form-select { appearance: none; cursor: pointer; }
+
+  /* Entries list inside form */
+  .entry-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .entry-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-xs); padding: 10px 14px;
+    font-size: 14px; animation: fadeUp 0.3s ease both;
+  }
+  .entry-item .entry-name { font-weight: 500; flex: 1; }
+  .entry-item .entry-num { color: var(--text-secondary); }
+  .entry-item .entry-remove {
+    background: none; border: none; color: var(--text-tertiary);
+    cursor: pointer; font-size: 18px; padding: 0 4px;
+    line-height: 1; transition: color var(--transition);
+  }
+  .entry-item .entry-remove:hover { color: #ff3b30; }
+
+  .add-entry-row {
+    display: grid; grid-template-columns: 1fr 1fr auto;
+    gap: 10px; align-items: end;
+  }
+  .btn-add {
+    background: var(--accent-light); color: var(--accent);
+    border: none; border-radius: var(--radius-xs);
+    padding: 12px 20px; font-size: 14px; font-weight: 500;
+    cursor: pointer; white-space: nowrap; transition: all var(--transition);
+    font-family: inherit;
+  }
+  .btn-add:hover { background: #d3e7fa; }
+
+  .divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+  .submit-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .submit-note { font-size: 12px; color: var(--text-tertiary); line-height: 1.4; max-width: 200px; }
+  .btn-submit {
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 30px;
+    padding: 14px 36px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: inherit;
+    transition: all var(--transition);
+    box-shadow: 0 4px 14px rgba(0,113,227,0.3);
+    letter-spacing: -0.2px; white-space: nowrap;
+  }
+  .btn-submit:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,113,227,0.38);
+  }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled {
+    opacity: 0.6; cursor: not-allowed; transform: none;
+  }
+
+  /* SUCCESS STATE */
+  .success-state {
+    display: none; text-align: center; padding: 48px 36px;
+  }
+  .success-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, #34c759, #30d158);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 28px;
+    box-shadow: 0 8px 24px rgba(52,199,89,0.35);
+  }
+  .success-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 500; letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+  .success-state p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* HOW IT WORKS */
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .step-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .step-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), #34aadc);
+    opacity: 0; transition: opacity var(--transition);
+  }
+  .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .step-card:hover::before { opacity: 1; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 400;
+    color: var(--border-strong); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-card h4 {
+    font-size: 16px; font-weight: 500; letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .step-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ABOUT SECTION */
+  .about-card {
+    background: var(--text-primary);
+    border-radius: var(--radius);
+    padding: 60px;
+    display: flex; gap: 60px; align-items: center;
+    overflow: visible; position: relative;
+  }
+  .about-card::before {
+    content: 'NPS';
+    position: absolute; right: -20px; bottom: -40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px; font-weight: 500;
+    color: rgba(255,255,255,0.04); line-height: 1;
+    pointer-events: none; user-select: none;
+  }
+  .about-content { flex: 1; }
+  .about-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 500; color: #fff;
+    letter-spacing: -1px; line-height: 1.2; margin-bottom: 16px;
+  }
+  .about-content p {
+    font-size: 15px; color: rgba(255,255,255,0.6);
+    line-height: 1.7; font-weight: 300;
+  }
+  .about-meta {
+    flex-shrink: 0; display: flex; flex-direction: column; gap: 14px;
+  }
+  .meta-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px; min-width: 160px;
+  }
+  .meta-label { font-size: 11px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.8px; }
+  .meta-value { font-size: 16px; font-weight: 500; color: #fff; margin-top: 4px; }
+
+  /* ADMIN SECTION */
+  .admin-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    max-width: 500px; margin: 0 auto;
+  }
+  .admin-gate { padding: 44px; text-align: center; }
+  .admin-gate-icon { font-size: 40px; margin-bottom: 16px; }
+  .admin-gate h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 500; letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .admin-gate p { font-size: 14px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.5; }
+  .admin-input-row { display: flex; gap: 10px; }
+  .admin-input-row .form-input { flex: 1; }
+  .btn-admin-login {
+    background: var(--text-primary); color: #fff;
+    border: none; border-radius: var(--radius-xs);
+    padding: 12px 20px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: inherit;
+    transition: background var(--transition); white-space: nowrap;
+  }
+  .btn-admin-login:hover { background: #3a3a3c; }
+  .btn-admin-login:disabled { opacity: 0.6; cursor: not-allowed; }
+  .admin-error { font-size: 13px; color: #ff3b30; margin-top: 10px; display: none; }
+
+  .admin-panel { display: none; }
+  .admin-panel-header {
+    background: var(--bg); padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .admin-panel-header h4 { font-size: 15px; font-weight: 500; }
+  .admin-panel-header span { font-size: 13px; color: var(--text-secondary); }
+  .submissions-list { padding: 16px; display: flex; flex-direction: column; gap: 10px; max-height: 520px; overflow-y: auto; }
+  .submission-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+  }
+  .submission-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .submission-card-header .submitter { font-size: 14px; font-weight: 500; }
+  .submission-card-header .sub-time { font-size: 12px; color: var(--text-tertiary); }
+  .contact-entry { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--surface); border-radius: var(--radius-xs); margin-bottom: 6px; }
+  .contact-entry .c-name { font-size: 13px; font-weight: 500; flex: 1; }
+  .contact-entry .c-num { font-size: 13px; color: var(--accent); font-weight: 400; }
+  .contact-entry .c-class { font-size: 11px; color: var(--text-tertiary); background: var(--border); padding: 2px 7px; border-radius: 8px; }
+  .submission-note { font-size: 13px; color: var(--text-secondary); font-style: italic; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+  .no-data { padding: 40px; text-align: center; color: var(--text-tertiary); font-size: 14px; }
+
+  .admin-footer { padding: 16px 28px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
+  .btn-export {
+    background: var(--accent); color: #fff; border: none;
+    border-radius: var(--radius-xs); padding: 10px 20px;
+    font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit;
+    transition: all var(--transition);
+  }
+  .btn-export:hover { background: var(--accent-hover); }
+  .btn-clear {
+    background: none; color: #ff3b30; border: 1px solid rgba(255,59,48,0.25);
+    border-radius: var(--radius-xs); padding: 10px 20px;
+    font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit;
+    transition: all var(--transition);
+  }
+  .btn-clear:hover { background: rgba(255,59,48,0.06); }
+
+  /* FOOTER */
+  footer {
+    max-width: 960px; margin: 0 auto;
+    padding: 48px 40px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  footer .footer-brand { font-size: 14px; font-weight: 500; }
+  footer .footer-sub { font-size: 13px; color: var(--text-tertiary); margin-top: 3px; }
+  footer .footer-right { font-size: 12px; color: var(--text-tertiary); text-align: right; line-height: 1.6; }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--text-primary); color: #fff;
+    padding: 14px 24px; border-radius: 30px;
+    font-size: 14px; font-weight: 500;
+    box-shadow: var(--shadow-lg); z-index: 999;
+    opacity: 0; pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 120px 24px 60px; }
+    .stats-row { flex-wrap: wrap; }
+    .stat-card { flex: calc(50% - 1px); }
+    .stat-card:first-child { border-radius: var(--radius) 0 0 0; }
+    .stat-card:nth-child(2) { border-radius: 0 var(--radius) 0 0; }
+    .stat-card:nth-child(3) { border-radius: 0 0 0 var(--radius); }
+    .stat-card:last-child { border-radius: 0 0 var(--radius) 0; }
+    .section { padding: 60px 24px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .add-entry-row { grid-template-columns: 1fr 1fr; }
+    .add-entry-row .btn-add { grid-column: 1 / -1; }
+    .about-card { flex-direction: column; padding: 36px 28px; gap: 32px; }
+    .about-meta { flex-direction: row; flex-wrap: wrap; width: 100%; }
+    .meta-item { flex: 1; min-width: 120px; }
+    footer { flex-direction: column; align-items: flex-start; }
+    footer .footer-right { text-align: left; }
+    .form-body { padding: 24px; }
+    .submit-row { flex-direction: column; align-items: stretch; text-align: center; }
+    .submit-note { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">
+      <svg viewBox="0 0 16 16" fill="white">
+        <path d="M8 2C4.686 2 2 4.686 2 8s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2a4 4 0 0 1 0 8A4 4 0 0 1 8 4zm-.5 1.5v3.293L5.146 11.146l1.061 1.061L9 9.414V5.5H7.5z"/>
+      </svg>
+    </div>
+    <span class="nav-title">NPS Reconnect</span>
+    <span class="nav-badge">Student Initiative</span>
+  </div>
+  <div class="nav-links">
+    <a href="#submit">Share Contact</a>
+    <a href="#how">How It Works</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#admin">Admin</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">
+    <div class="hero-tag-dot"></div>
+    Nalgonda Public School · Class of 2024
+  </div>
+  <h1>Find your<br><em>lost classmates.</em></h1>
+  <p>Students come and go over the years. Help us rebuild the connections that time scattered. Share what you know — every number brings us closer.</p>
+  <div class="hero-actions">
+    <a href="#submit" class="btn-primary">Share a Contact</a>
+    <a href="#how" class="btn-secondary">How it works</a>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num" id="statContacts">—</div>
+      <div class="stat-label">Contacts Shared</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statContributors">—</div>
+      <div class="stat-label">Contributors</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10th</div>
+      <div class="stat-label">Batch Year</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2024</div>
+      <div class="stat-label">Graduated</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section reveal" id="how">
+  <div class="section-header">
+    <div class="section-eyebrow">The Process</div>
+    <h2 class="section-title">Simple as three steps</h2>
+    <p class="section-sub">No accounts. No sign-ups. Just share what you know and help us reunite everyone.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h4>Remember someone?</h4>
+      <p>Think of a friend who left school in any class before 10th grade. You might have their number saved somewhere.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h4>Fill the short form</h4>
+      <p>Enter your name, the friend's name, their contact number, and the class they were in when they left. Add as many as you like.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h4>We build the group</h4>
+      <p>Our team reviews every submission, verifies what we can, and creates a WhatsApp group before we head off to our B.Tech journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT FORM -->
+<section class="section reveal" id="submit">
+  <div class="section-header">
+    <div class="section-eyebrow">Contribute</div>
+    <h2 class="section-title">Share a contact</h2>
+    <p class="section-sub">You can add multiple people in one submission. Even one number helps.</p>
+  </div>
+
+  <div class="form-card">
+    <div class="form-card-header">
+      <div class="form-card-icon">📬</div>
+      <div class="form-card-header-text">
+        <h3>Contact Submission</h3>
+        <p>All information is kept private and used only for the group</p>
+      </div>
+    </div>
+
+    <div class="form-body" id="formBody">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Your Name *</label>
+          <input type="text" class="form-input" id="submitterName" placeholder="e.g. Rahul Kumar">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Class / Year *</label>
+          <select class="form-select" id="submitterClass">
+            <option value="">Select your class</option>
+            <option>10th (2023–24)</option>
+            <option>10th (2022–23)</option>
+            <option>Intermediate / Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Contact Number *</label>
+          <input type="tel" class="form-input" id="submitterPhone" placeholder="+91 00000 00000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your WhatsApp (if different)</label>
+          <input type="tel" class="form-input" id="submitterWA" placeholder="+91 00000 00000">
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="form-group" style="margin-bottom: 14px;">
+        <label class="form-label">Friends you want to add</label>
+      </div>
+
+      <div class="entry-list" id="entryList"></div>
+
+      <div class="add-entry-row">
+        <div class="form-group" style="margin:0">
+          <input type="text" class="form-input" id="friendName" placeholder="Friend's name">
+        </div>
+        <div class="form-group" style="margin:0">
+          <input type="tel" class="form-input" id="friendPhone" placeholder="Their number">
+        </div>
+        <button class="btn-add" onclick="addEntry()">+ Add</button>
+      </div>
+      <div style="margin-top:10px">
+        <div class="form-group">
+          <label class="form-label">Class they left in</label>
+          <select class="form-select" id="friendClass" style="margin-top:7px">
+            <option value="">Which class were they in?</option>
+            <option>Class 1</option><option>Class 2</option><option>Class 3</option>
+            <option>Class 4</option><option>Class 5</option><option>Class 6</option>
+            <option>Class 7</option><option>Class 8</option><option>Class 9</option>
+            <option>Class 10</option><option>Not sure</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="form-group" style="margin-bottom: 22px;">
+        <label class="form-label">Any other notes?</label>
+        <textarea class="form-textarea" id="submitNote" placeholder="Anything else you'd like to share — another school name, city they moved to, etc."></textarea>
+      </div>
+
+      <div class="submit-row">
+        <p class="submit-note">Friends' contacts are optional — submitting your own number alone is perfectly fine.</p>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Send to Team →</button>
+      </div>
+    </div>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">✓</div>
+      <h3>Thank you!</h3>
+      <p>Your contacts have been saved. The team at Nalgonda Public School will review your submission and add verified numbers to the group.<br><br><strong>We'll be in touch!</strong></p>
+      <br>
+      <button class="btn-secondary" onclick="resetForm()" style="margin-top:8px">Submit another →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section reveal" id="about">
+  <div class="about-card">
+    <div class="about-content">
+      <div class="about-badge">Student Initiative</div>
+      <h2>Made with heart 🖤<br>for NPS alumni.</h2>
+      <p>Over the years, classmates joined Nalgonda Public School, shared memories, and moved on — to different schools, different cities. This website is an attempt by three students from the 10th batch to gather every contact that time scattered, so that before we step into our B.Tech lives, we're all together in one group, one last time.</p>
+    </div>
+    <div class="about-meta">
+      <div class="meta-item">
+        <div class="meta-label">School</div>
+        <div class="meta-value">Nalgonda Public School</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Batch</div>
+        <div class="meta-value">10th · 2023–24</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Goal</div>
+        <div class="meta-value">WhatsApp Reunion</div>
+      </div>
+      <div class="meta-item" style="position:relative;">
+        <div class="meta-label">Initiated by</div>
+        <div class="meta-value" style="display:flex;align-items:center;gap:8px;cursor:pointer;" onclick="toggleStudentDropdown(event)">
+          3 Students
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="opacity:0.6;transition:transform 0.2s;" id="dropdownChevron"><path d="M3 5l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div id="studentDropdown" style="display:none;position:absolute;right:0;top:calc(100% + 8px);background:#2c2c2e;border:1px solid rgba(255,255,255,0.12);border-radius:12px;min-width:200px;overflow:hidden;z-index:200;box-shadow:0 8px 30px rgba(0,0,0,0.4);">
+          <div style="padding:8px 0;">
+            <div style="padding:10px 16px;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:4px;">Team Members</div>
+            <div style="padding:10px 16px;display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0;">M</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:#fff;">Manikanta</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.4);">Admin</div>
+              </div>
+            </div>
+            <div style="padding:10px 16px;display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0;">S</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:#fff;">Sspankco</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.4);">Moderator</div>
+              </div>
+            </div>
+            <div style="padding:10px 16px;display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#10b981,#047857);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0;">S</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:#fff;">Srikar</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.4);">Moderator</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section reveal" id="contact">
+  <div class="section-header">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Contact the team</h2>
+    <p class="section-sub">Have a question, concern, or want to verify something? Reach out to the creators directly.</p>
+  </div>
+
+  <div class="steps-grid">
+    <!-- Manikanta -->
+    <div class="step-card" style="text-align:center;">
+      <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;margin:0 auto 16px;">M</div>
+      <h4 style="margin-bottom:4px;">Manikanta</h4>
+      <p style="font-size:12px;color:var(--accent);font-weight:500;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px;">Admin</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="tel:+918328060866" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-xs);text-decoration:none;color:var(--text-primary);font-size:13px;font-weight:500;transition:all var(--transition);" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.72 3.36 2 2 0 0 1 3.7 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6.29 6.29l1.21-1.21a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 83280 60866
+        </a>
+        <a href="https://www.instagram.com/xliptan" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;background:linear-gradient(135deg,rgba(131,58,180,0.08),rgba(253,29,29,0.08));border:1px solid rgba(131,58,180,0.2);border-radius:var(--radius-xs);text-decoration:none;color:var(--text-primary);font-size:13px;font-weight:500;transition:all var(--transition);" onmouseover="this.style.borderColor='#c13584'" onmouseout="this.style.borderColor='rgba(131,58,180,0.2)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @xliptan
+        </a>
+      </div>
+    </div>
+
+    <!-- Sspankco -->
+    <div class="step-card" style="text-align:center;">
+      <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;margin:0 auto 16px;">S</div>
+      <h4 style="margin-bottom:4px;">Sspankco</h4>
+      <p style="font-size:12px;color:var(--accent);font-weight:500;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px;">Moderator</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://www.instagram.com/sspankcoreddy" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;background:linear-gradient(135deg,rgba(131,58,180,0.08),rgba(253,29,29,0.08));border:1px solid rgba(131,58,180,0.2);border-radius:var(--radius-xs);text-decoration:none;color:var(--text-primary);font-size:13px;font-weight:500;transition:all var(--transition);" onmouseover="this.style.borderColor='#c13584'" onmouseout="this.style.borderColor='rgba(131,58,180,0.2)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @sspankcoreddy
+        </a>
+      </div>
+    </div>
+
+    <!-- Srikar -->
+    <div class="step-card" style="text-align:center;">
+      <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#10b981,#047857);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;margin:0 auto 16px;">S</div>
+      <h4 style="margin-bottom:4px;">Srikar</h4>
+      <p style="font-size:12px;color:var(--accent);font-weight:500;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px;">Moderator</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://www.instagram.com/peruri_srikar" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;background:linear-gradient(135deg,rgba(131,58,180,0.08),rgba(253,29,29,0.08));border:1px solid rgba(131,58,180,0.2);border-radius:var(--radius-xs);text-decoration:none;color:var(--text-primary);font-size:13px;font-weight:500;transition:all var(--transition);" onmouseover="this.style.borderColor='#c13584'" onmouseout="this.style.borderColor='rgba(131,58,180,0.2)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @peruri_srikar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section class="section reveal" id="admin">
+  <div class="section-header">
+    <div class="section-eyebrow">Admin</div>
+    <h2 class="section-title">Review submissions</h2>
+    <p class="section-sub">Only for the team. Enter the password to view and export all submitted contacts.</p>
+  </div>
+
+  <div class="admin-card">
+    <div class="admin-gate" id="adminGate">
+      <div class="admin-gate-icon">🔒</div>
+      <h3>Admin Access</h3>
+      <p>Enter the admin password to view all contact submissions shared by your schoolmates.</p>
+      <div class="admin-input-row">
+        <input type="password" class="form-input" id="adminPass" placeholder="Password" onkeydown="if(event.key==='Enter')adminLogin()">
+        <button class="btn-admin-login" id="loginBtn" onclick="adminLogin()">Unlock</button>
+      </div>
+      <p class="admin-error" id="adminError">Incorrect password. Try again.</p>
+    </div>
+
+    <div class="admin-panel" id="adminPanel">
+      <div class="admin-panel-header">
+        <h4>All Submissions</h4>
+        <span id="adminCount">0 entries</span>
+      </div>
+      <div class="submissions-list" id="submissionsList"></div>
+      <div class="admin-footer">
+        <button class="btn-export" onclick="exportCSV()">Export CSV</button>
+        <button class="btn-clear" onclick="clearData()">Clear All Data</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">NPS Reconnect</div>
+    <div class="footer-sub">Nalgonda Public School · 10th Batch 2023–24</div>
+  </div>
+  <div class="footer-right">
+    A student initiative.<br>Made before the B.Tech chapter begins.
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- Firebase SDK (modular via CDN compat build) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+  // ── FIREBASE INIT ──
+  const firebaseConfig = {
+    apiKey: "AIzaSyCEAcnu0IM8lu01v8LvjrWsPW7O-H8E34E",
+    authDomain: "nps-reconnect.firebaseapp.com",
+    projectId: "nps-reconnect",
+    storageBucket: "nps-reconnect.firebasestorage.app",
+    messagingSenderId: "51001884118",
+    appId: "1:51001884118:web:f99fb11f35aacb8642b877"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // ── STATE ──
+  let entries = [];
+  let adminSubmissions = [];
+
+  // ── SHA-256 HASH UTILITY ──
+  async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // ── LIVE STATS from Firestore ──
+  async function updateStats() {
+    try {
+      const snapshot = await db.collection('submissions').get();
+      let totalContacts = 0;
+      let contributors = snapshot.size;
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        totalContacts += (data.entries || []).length;
+      });
+      animateCount('statContacts', totalContacts);
+      animateCount('statContributors', contributors);
+    } catch (e) {
+      document.getElementById('statContacts').textContent = '—';
+      document.getElementById('statContributors').textContent = '—';
+    }
+  }
+
+  function animateCount(id, target) {
+    const el = document.getElementById(id);
+    let start = 0;
+    const step = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = start;
+      if (start >= target) clearInterval(timer);
+    }, 40);
+  }
+
+  // ── ADD ENTRY ROW ──
+  function addEntry() {
+    const name = document.getElementById('friendName').value.trim();
+    const phone = document.getElementById('friendPhone').value.trim();
+    const cls = document.getElementById('friendClass').value;
+    if (!name || !phone) { showToast('Please enter both name and number.'); return; }
+    entries.push({ name, phone, cls });
+    renderEntries();
+    document.getElementById('friendName').value = '';
+    document.getElementById('friendPhone').value = '';
+    document.getElementById('friendClass').value = '';
+  }
+
+  function removeEntry(i) {
+    entries.splice(i, 1);
+    renderEntries();
+  }
+
+  function renderEntries() {
+    const list = document.getElementById('entryList');
+    list.innerHTML = entries.map((e, i) => `
+      <div class="entry-item">
+        <span class="entry-name">${e.name}</span>
+        <span class="entry-num">${e.phone}</span>
+        ${e.cls ? `<span style="font-size:11px;color:var(--text-tertiary);background:var(--border);padding:2px 8px;border-radius:8px">${e.cls}</span>` : ''}
+        <button class="entry-remove" onclick="removeEntry(${i})">×</button>
+      </div>
+    `).join('');
+  }
+
+  // ── SUBMIT → FIRESTORE ──
+  async function submitForm() {
+    const name = document.getElementById('submitterName').value.trim();
+    const cls = document.getElementById('submitterClass').value;
+    const phone = document.getElementById('submitterPhone').value.trim();
+    if (!name || !cls || !phone) { showToast('Please fill in your name, class, and number.'); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    const submission = {
+      submitter: { name, cls, phone, wa: document.getElementById('submitterWA').value.trim() },
+      entries: [...entries],
+      note: document.getElementById('submitNote').value.trim(),
+      time: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }),
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    try {
+      await db.collection('submissions').add(submission);
+      updateStats();
+      document.getElementById('formBody').style.display = 'none';
+      document.getElementById('successState').style.display = 'block';
+    } catch (err) {
+      showToast('Failed to save. Please check your connection and try again.');
+      btn.disabled = false;
+      btn.textContent = 'Send to Team →';
+    }
+  }
+
+  function resetForm() {
+    entries = [];
+    document.getElementById('submitterName').value = '';
+    document.getElementById('submitterClass').value = '';
+    document.getElementById('submitterPhone').value = '';
+    document.getElementById('submitterWA').value = '';
+    document.getElementById('submitNote').value = '';
+    renderEntries();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = false;
+    btn.textContent = 'Send to Team →';
+    document.getElementById('formBody').style.display = 'block';
+    document.getElementById('successState').style.display = 'none';
+  }
+
+  // ── ADMIN LOGIN (hash-verified against Firestore) ──
+  async function adminLogin() {
+    const pass = document.getElementById('adminPass').value;
+    if (!pass) return;
+
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.disabled = true;
+    loginBtn.textContent = 'Checking…';
+    document.getElementById('adminError').style.display = 'none';
+
+    try {
+      const inputHash = await sha256(pass);
+      const configDoc = await db.collection('config').doc('admin').get();
+
+      if (!configDoc.exists) {
+        showToast('Admin config not found. Contact site owner.');
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Unlock';
+        return;
+      }
+
+      const storedHash = configDoc.data().passwordHash;
+
+      if (inputHash === storedHash) {
+        document.getElementById('adminGate').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+        loadSubmissions();
+      } else {
+        document.getElementById('adminError').style.display = 'block';
+        document.getElementById('adminPass').value = '';
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Unlock';
+      }
+    } catch (err) {
+      showToast('Connection error. Please try again.');
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Unlock';
+    }
+  }
+
+  // ── LOAD SUBMISSIONS FROM FIRESTORE ──
+  async function loadSubmissions() {
+    const list = document.getElementById('submissionsList');
+    list.innerHTML = '<div class="no-data">Loading…</div>';
+
+    try {
+      const snapshot = await db.collection('submissions')
+        .orderBy('timestamp', 'desc')
+        .get();
+
+      adminSubmissions = [];
+      snapshot.forEach(doc => adminSubmissions.push({ id: doc.id, ...doc.data() }));
+      renderSubmissions();
+    } catch (err) {
+      list.innerHTML = '<div class="no-data">Failed to load submissions. Check connection.</div>';
+    }
+  }
+
+  function renderSubmissions() {
+    const list = document.getElementById('submissionsList');
+    document.getElementById('adminCount').textContent =
+      `${adminSubmissions.length} submission${adminSubmissions.length !== 1 ? 's' : ''}`;
+
+    if (adminSubmissions.length === 0) {
+      list.innerHTML = '<div class="no-data">No submissions yet. Share the link with friends!</div>';
+      return;
+    }
+
+    list.innerHTML = adminSubmissions.map((s) => `
+      <div class="submission-card">
+        <div class="submission-card-header">
+          <span class="submitter">From: ${s.submitter.name} (${s.submitter.cls})</span>
+          <span class="sub-time">${s.time}</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:10px">
+          📞 ${s.submitter.phone}${s.submitter.wa ? ' · WhatsApp: ' + s.submitter.wa : ''}
+        </div>
+        ${(s.entries || []).map(e => `
+          <div class="contact-entry">
+            <span class="c-name">${e.name}</span>
+            <span class="c-num">${e.phone}</span>
+            ${e.cls ? `<span class="c-class">${e.cls}</span>` : ''}
+          </div>
+        `).join('')}
+        ${s.note ? `<div class="submission-note">💬 "${s.note}"</div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  // ── EXPORT CSV ──
+  function exportCSV() {
+    if (adminSubmissions.length === 0) { showToast('No data to export yet.'); return; }
+    let csv = 'Submitted By,Submitter Class,Submitter Phone,Friend Name,Friend Phone,Friend Class,Time,Notes\n';
+    adminSubmissions.forEach(s => {
+      (s.entries || []).forEach(e => {
+        csv += `"${s.submitter.name}","${s.submitter.cls}","${s.submitter.phone}","${e.name}","${e.phone}","${e.cls || ''}","${s.time}","${(s.note||'').replace(/"/g,'""')}"\n`;
+      });
+    });
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'NPS_Reconnect_Contacts.csv';
+    a.click();
+    showToast('CSV downloaded!');
+  }
+
+  // ── CLEAR ALL DATA ──
+  async function clearData() {
+    if (!confirm('Are you sure? This will permanently delete ALL submissions from the database.')) return;
+    showToast('Deleting all data…');
+    try {
+      const snapshot = await db.collection('submissions').get();
+      const batch = db.batch();
+      snapshot.forEach(doc => batch.delete(doc.ref));
+      await batch.commit();
+      adminSubmissions = [];
+      renderSubmissions();
+      updateStats();
+      showToast('All data cleared.');
+    } catch (err) {
+      showToast('Failed to clear data. Try again.');
+    }
+  }
+
+  // ── TOAST ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ── STUDENT DROPDOWN ──
+  function toggleStudentDropdown(e) {
+    e.stopPropagation();
+    const dd = document.getElementById('studentDropdown');
+    const chevron = document.getElementById('dropdownChevron');
+    const isOpen = dd.style.display !== 'none';
+    dd.style.display = isOpen ? 'none' : 'block';
+    chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
+  document.addEventListener('click', () => {
+    const dd = document.getElementById('studentDropdown');
+    const chevron = document.getElementById('dropdownChevron');
+    if (dd) { dd.style.display = 'none'; chevron.style.transform = 'rotate(0deg)'; }
+  });
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+
+  // ── INIT ──
+  updateStats();
+</script>
+</body>
+</html>
